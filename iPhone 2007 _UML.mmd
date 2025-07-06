@@ -1,0 +1,117 @@
+classDiagram
+    direction LR
+
+    class iPhone2007 {
+        +String model
+        +String osVersion
+        +void powerOn()
+        +void powerOff()
+        +void lockScreen()
+        +void unlockScreen()
+        +void display(String content)
+        +void touch(int x, int y)
+        +void multiTouchGesture(String gesture)
+    }
+
+    class MusicPlayer {
+        +void playMusic(Song song)
+        +void pauseMusic()
+        +void stopMusic()
+        +void nextSong()
+        +void previousSong()
+        +void adjustVolume(int level)
+        +void displayAlbumArt(Song song)
+        +void browsePlaylists()
+        +void browseArtists()
+        +void browseSongs()
+        +void browseVideos()
+        +void activateCoverFlow()
+    }
+
+    class PhoneDevice {
+        +void makeCall(String phoneNumber)
+        +void endCall()
+        +void answerCall()
+        +void declineCall()
+        +void sendSMS(String recipient, String message)
+        +void receiveSMS(String sender, String message)
+        +void addContact(Contact contact)
+        +void viewContacts()
+        +void viewRecents()
+        +void viewFavorites()
+        +void dialKeypad(String number)
+        +void checkVoicemail()
+        +void visualVoicemail(int messageId)
+        +void mergeCalls()
+        +void takePhoto()
+        +void viewPhotos()
+        +void setWallpaper(Photo photo)
+    }
+
+    class InternetBrowser {
+        +void openURL(String url)
+        +void navigateBack()
+        +void navigateForward()
+        +void zoomIn()
+        +void zoomOut()
+        +void openNewTab()
+        +void closeTab()
+        +void viewBookmarks()
+        +void sendEmail(Email email)
+        +void receiveEmail(Email email)
+        +void viewMaps(String location)
+        +void getWeather(String city)
+        +void getStockQuotes(String symbol)
+    }
+
+    class Song {
+        +String title
+        +String artist
+        +String album
+        +String duration
+        +String albumArt
+    }
+
+    class Contact {
+        +String name
+        +String phoneNumber
+        +String email
+        +String address
+    }
+
+    class WebPage {
+        +String url
+        +String htmlContent
+    }
+
+    class Email {
+        +String from
+        +String to
+        +String subject
+        +String body
+        +boolean isRead
+    }
+
+    class Photo {
+        +String filename
+        +String resolution
+    }
+
+    class Voicemail {
+        +int messageId
+        +String sender
+        +String duration
+        +String transcription
+    }
+
+    iPhone2007 --|> MusicPlayer
+    iPhone2007 --|> PhoneDevice
+    iPhone2007 --|> InternetBrowser
+
+    MusicPlayer "1" -- "many" Song : plays
+    PhoneDevice "1" -- "many" Contact : manages
+    PhoneDevice "1" -- "many" Photo : manages
+    PhoneDevice "1" -- "many" Voicemail : manages
+    PhoneDevice "1" -- "many" Email : manages (SMS/Email related)
+    InternetBrowser "1" -- "many" WebPage : browses
+    InternetBrowser "1" -- "many" Email : manages
