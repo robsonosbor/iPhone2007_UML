@@ -1,6 +1,7 @@
-# Modelagem UML e Implementação Java do iPhone (2007)
+# DIO - POO - Desafio - Modelagem UML e Implementação Java do iPhone (2007)
 
 Este projeto tem como objetivo principal demonstrar a aplicação de conceitos de **Modelagem UML (Unified Modeling Language)**, especificamente Diagramas de Classe e Interface, para representar as funcionalidades de um produto complexo como o iPhone original, lançado em 2007. Além da modelagem, o projeto inclui uma implementação básica dessas funcionalidades em **Java**.
+
 
 A base para este projeto foi a transcrição do vídeo de lançamento do iPhone em 2007, com foco nas funcionalidades de:
 
@@ -35,6 +36,7 @@ O diagrama abaixo ilustra as classes, interfaces e seus relacionamentos. A class
 
 ```mermaid
 classDiagram
+
     direction LR
 
     class iPhone2007 {
@@ -49,7 +51,7 @@ classDiagram
         +void multiTouchGesture(String gesture)
     }
 
-    interface IMusicPlayer {
+    class IMusicPlayer {
         +void playMusic(Song song)
         +void pauseMusic()
         +void stopMusic()
@@ -64,7 +66,7 @@ classDiagram
         +void activateCoverFlow()
     }
 
-    interface IPhoneDevice {
+    class IPhoneDevice {
         +void makeCall(String phoneNumber)
         +void endCall()
         +void answerCall()
@@ -84,7 +86,7 @@ classDiagram
         +void setWallpaper(Photo photo)
     }
 
-    interface IInternetBrowser {
+    class IInternetBrowser {
         +void openURL(String url)
         +void navigateBack()
         +void navigateForward()
@@ -177,17 +179,28 @@ src/main/java/: Contém todos os arquivos .java das interfaces e classes.
 Para compilar e executar este projeto, você precisará ter o Java Development Kit (JDK) instalado em sua máquina (versão 8 ou superior é recomendada).
 
 1 - Clone o repositório:
-git clone [https://github.com/seu-usuario/nome-do-seu-repositorio.git](https://github.com/seu-usuario/nome-do-seu-repositorio.git)
-cd nome-do-seu-repositorio
+
+```bash
+git clone [https://github.com/seu-usuario/nome-do-repositorio.git]
+```
 
 2 - Navegue até a pasta java:
+
+```bash
 cd src/main/java/
+```
 
 3 - Compile os arquivos Java:
+
+```bash
 javac *.java
+```
 
 4 - Execute a classe principal iPhone2007:
+
+```bash
 java iPhone2007
+```
 
 ## Tecnologias Utilizadas
 * UML (Unified Modeling Language): Para a fase de design e modelagem.
